@@ -10,6 +10,5 @@ namespace InMemoryOutboxTest.Api
         public Guid ExecutionId { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public int DelayAfterPublish { get; set; }
-        public bool AsyncPublish { get; internal set; }
     }
 }

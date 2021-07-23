@@ -12,9 +12,7 @@ namespace InMemoryOutboxTest.Api
         public string CurrentState { get; set; }
         public DateTime CreatedAt { get; set; }
         public int AppliedDelayBeforeSaveChanges { get; set; }
-        public int ObservedInMemoryOutboxDelay { get; set; }
         public DateTime SecondEventPublishedAt { get; set; }
-        public DateTime SecondEventReceived { get; set; }
         public DateTime FinishedAt { get; set; }
 
         public byte[] RowVersion { get; set; }

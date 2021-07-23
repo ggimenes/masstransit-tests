@@ -127,8 +127,7 @@ namespace InMemoryOutboxTest.Api
                         {
                             //var partition = c.CreatePartitioner(10);
 
-                            //c.Message<FirstEventReceived>(x => x.UsePartitioner(partition, m => m.Message.ExecutionId));
-                            //c.Message<SecondEvent>(x => x.UsePartitioner(partition, m => m.Message.ExecutionId));
+                            //c.Message<FirstEventReceived>(x => x.UsePartitioner(partition, m => m.Message.ExecutionId));                            
                         });
                     });
                 });

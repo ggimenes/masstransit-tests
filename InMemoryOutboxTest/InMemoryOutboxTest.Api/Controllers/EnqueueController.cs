@@ -25,16 +25,14 @@ namespace InMemoryOutboxTest.Api.Controllers
         /// 
         /// </summary>
         /// <param name="delayAfterPublish">Delay in ms applied after publish has been called. Used to check if the publish occours before or after this delay</param>
-        /// <param name="asyncPublish">If true, will make a fire and forget thread with 1000ms of delay before execute the publish. Could be used to process the second event, deferring publish just like the InMemoryOutbox</param>        
         /// <returns></returns>
         [HttpPost("first-event")]
-        public async Task<ActionResult> Get(int delayAfterPublish, bool asyncPublish)
+        public async Task<ActionResult> Get(int delayAfterPublish = 3000)
         {
             await _bus.Publish(new FirstEventReceived()
             {
                 ExecutionId = Guid.NewGuid(),
-                DelayAfterPublish = delayAfterPublish,
-                AsyncPublish  = asyncPublish
+                DelayAfterPublish = delayAfterPublish
             });
             return Ok();
         }

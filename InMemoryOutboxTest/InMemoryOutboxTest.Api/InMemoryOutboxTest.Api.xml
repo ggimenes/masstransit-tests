@@ -4,12 +4,11 @@
         <name>InMemoryOutboxTest.Api</name>
     </assembly>
     <members>
-        <member name="M:InMemoryOutboxTest.Api.Controllers.EnqueueController.Get(System.Int32,System.Boolean)">
+        <member name="M:InMemoryOutboxTest.Api.Controllers.EnqueueController.Get(System.Int32)">
             <summary>
             
             </summary>
             <param name="delayAfterPublish">Delay in ms applied after publish has been called. Used to check if the publish occours before or after this delay</param>
-            <param name="asyncPublish">If true, will make a fire and forget thread with 1000ms of delay before execute the publish. Could be used to process the second event, deferring publish just like the InMemoryOutbox</param>        
             <returns></returns>
         </member>
     </members>

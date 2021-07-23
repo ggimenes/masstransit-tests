@@ -4,14 +4,16 @@ using InMemoryOutboxTest.Api;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace InMemoryOutboxTest.Api.Migrations
 {
     [DbContext(typeof(TestSagaDbContext))]
-    partial class TestSagaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210723122802_RemovingSecondConsumer")]
+    partial class RemovingSecondConsumer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

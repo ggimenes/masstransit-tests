@@ -11,12 +11,10 @@ namespace InMemoryOutboxTest.Api
 {
     public class FirstActivity : Activity<SagaState, FirstEventReceived>
     {
-        private readonly IBus _bus;
         private readonly ILogger<FirstActivity> _logger;
 
-        public FirstActivity(IBus bus, ILogger<FirstActivity> logger)
+        public FirstActivity(ILogger<FirstActivity> logger)
         {
-            _bus = bus;
             _logger = logger;
         }
 
@@ -54,14 +52,14 @@ namespace InMemoryOutboxTest.Api
             _ = Task.Run(() =>
             {
                 Task.Delay(1000).Wait();
-                _bus.Publish(secondEvent).Wait();
+                context.Publish(secondEvent).Wait();
                 _logger.LogInformation($"ExecutionId: {secondEvent.ExecutionId} - Async Publish called after 1000ms - SecondEvent");
             });
         }
 
         private async Task DoSyncPublish(BehaviorContext<SagaState, FirstEventReceived> context, SecondEvent secondEvent)
         {
-            await _bus.Publish(secondEvent);
+            await context.Publish(secondEvent);
             context.Instance.SecondEventPublishedAt = DateTime.UtcNow;
 
             _logger.LogInformation($"ExecutionId: {secondEvent.ExecutionId} - Sync Publish called SecondEvent");
